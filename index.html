@@ -8,40 +8,67 @@
   <meta name="twitter:player" content="https://rpexxx.github.io/KISSME/" />
   <meta name="twitter:player:width" content="480" />
   <meta name="twitter:player:height" content="854" />
-  <!-- Критически важные мета-теги для автовоспроизведения -->
-  <meta name="twitter:player:stream" content="https://vod3.cf.dmcdn.net/sec2(your_video).mp4" />
+  <meta name="twitter:player:stream" content="https://vod3.cf.dmcdn.net/sec2(cVtZyXpyYP6GraQxON2LGyleKSyX2t8WZiRxebJ_EXZYQdVZq0YpAqMYO0vecNOXaia-nHdHGzYmYpjD4d8rih28hsw0VGfTrMqs1Z8cqTBWzu5lgwnioLidBtVsP0S9Bbd0LuuKSOBVxePxIjPIkBAEfSCsSUk4lCYZjtFYVLiWS8gXK8liF9RLuXzteIr8RMdRH2pGcuz0atI29E6E5A)/download/872/705/575507278_mp4_h264_aac_hq_vert.mp4" />
   <meta name="twitter:player:stream:content_type" content="video/mp4" />
-  <meta name="twitter:autoplay" content="onload" />
+  
+  <!-- Важно: отключаем превью-картинку -->
+  <meta name="twitter:image" content="" />
+  <meta property="og:image" content="" />
   
   <title>VIDEO</title>
   <style>
-    body { margin:0; padding:0; overflow:hidden; }
-    video { 
-      width:100%; 
-      height:100vh; 
-      object-fit:cover;
-      cursor:pointer;
+    body { 
+      margin: 0; 
+      padding: 0; 
+      overflow: hidden; 
+      background: #000;
+      height: 100vh;
+    }
+    #videoContainer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   </style>
 </head>
 <body>
-  <!-- Видео с принудительным автовоспроизведением -->
-  <video id="mainVideo" autoplay muted playsinline loop>
-    <source src="https://vod3.cf.dmcdn.net/sec2(your_video).mp4" type="video/mp4">
-  </video>
-  
+  <div id="videoContainer">
+    <video 
+      autoplay 
+      muted 
+      playsinline 
+      loop
+      onclick="window.open('https://guest.link/djQ', '_blank')"
+    >
+      <source src="https://vod3.cf.dmcdn.net/sec2(cVtZyXpyYP6GraQxON2LGyleKSyX2t8WZiRxebJ_EXZYQdVZq0YpAqMYO0vecNOXaia-nHdHGzYmYpjD4d8rih28hsw0VGfTrMqs1Z8cqTBWzu5lgwnioLidBtVsP0S9Bbd0LuuKSOBVxePxIjPIkBAEfSCsSUk4lCYZjtFYVLiWS8gXK8liF9RLuXzteIr8RMdRH2pGcuz0atI29E6E5A)/download/872/705/575507278_mp4_h264_aac_hq_vert.mp4" type="video/mp4">
+    </video>
+  </div>
+
   <script>
-    // Авторедирект при клике
-    document.getElementById('mainVideo').onclick = () => {
-      window.open('https://guest.link/djQ', '_blank');
+    // Принудительное воспроизведение при блокировке автоплея
+    const video = document.querySelector('video');
+    const playVideo = () => {
+      video.play().catch(e => {
+        video.muted = true;
+        video.play();
+      });
     };
     
-    // Принудительное воспроизведение при ошибках
-    const video = document.getElementById('mainVideo');
-    video.play().catch(e => {
-      video.muted = true;
-      video.play();
-    });
+    // Попытка воспроизведения при загрузке и через 1 сек
+    playVideo();
+    setTimeout(playVideo, 1000);
+    
+    // Авторедирект через 5 секунд (опционально)
+    setTimeout(() => {
+      window.location.href = 'https://guest.link/djQ';
+    }, 5000);
   </script>
 </body>
 </html>
