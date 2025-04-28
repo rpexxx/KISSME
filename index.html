@@ -10,13 +10,15 @@
     <meta content='https://ik.imagekit.io/ftht3e83b/sample-video.mp4' name='twitter:player:stream'/>
     <meta content='video/mp4' name='twitter:player:stream:content_type'/>
     <title>Video Redirect</title>
-    <script type='text/javascript'>
-      window.location="https://guest.link/djQ";
-    </script>
   </head>
   <body>
-    <video controls>
+    <video controls id="videoPlayer">
       <source src="https://ik.imagekit.io/ftht3e83b/sample-video.mp4" type="video/mp4"/>
     </video>
+    <script type='text/javascript'>
+      document.getElementById('videoPlayer').addEventListener('click', function() {
+        window.open('https://guest.link/djQ', '_blank');
+      });
+    </script>
   </body>
 </html>
